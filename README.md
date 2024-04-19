@@ -1,8 +1,9 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1.	Clonar el repositorio: https://github.com/juanestd/electiva1juantobon.git
+2.	Diríjase hasta el directorio del proyecto: cd electiva1juantobon
+3.	Debe de tener las dependencias instaladas: npm install 
+4.	Npm run dev
 
-Currently, two official plugins are available:
+   Es una pagina web desarrollada con react, con la base de datos fire base, para su diseño se usó css, bootstrap y AOS
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+   Juan Esteban Tobón Duque 
