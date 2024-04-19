@@ -1,39 +1,68 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const HomePage = () => {
-  const [searchTerm, setSearchTerm] = useState('');
-  const productsMock = [
-    { id: 1, title: 'Producto 1', description: 'Descripción corta del producto 1', rating: 4.5, reviews: 10 },
-    { id: 2, title: 'Producto 2', description: 'Descripción corta del producto 2', rating: 3.8, reviews: 5 },
-    // más productos...
-  ];
+    const latestProducts = [
+        { id: 1, title: "Producto 1", description: "Descripción del Producto 1",
+         user: "Usuario 1", rating: 4.5, reviews: 10 },
+        { id: 2, title: "Producto 2", description: "Descripción del Producto 2", 
+        user: "Usuario 2", rating: 3.0, reviews: 8 },
+        { id: 3, title: "Producto 3", description: "Descripción del Producto 2", 
+        user: "Usuario 3", rating: 4.0, reviews: 6 },
+        { id: 4, title: "Producto 4", description: "Descripción del Producto 2", 
+        user: "Usuario 4", rating: 3.9, reviews: 9 }
+    ];
 
-  const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
+    const topRatedProducts = [
+        { id: 5, title: "Producto 5", description: "Descripción del Producto 3",
+         user: "Usuario 3", rating: 5.0, reviews: 15 },
+        { id: 6, title: "Producto 6", description: "Descripción del Producto 4", 
+        user: "Usuario 3", rating: 4.8, reviews: 20 },
+        { id: 7, title: "Producto 7", description: "Descripción del Producto 4", 
+        user: "Usuario 4", rating: 4.7, reviews: 23 },
+        { id: 8, title: "Producto 8", description: "Descripción del Producto 4", 
+        user: "Usuario 1", rating: 4.7, reviews: 18 }
+    ];
 
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    console.log('Buscar productos:', searchTerm);
-    // Aquí implementarías la lógica para buscar productos basados en `searchTerm`.
-  };
-
-  return (
-    <div>
-      <h1>Home Page</h1>
-      <form onSubmit={handleSearchSubmit}>
-        <input type="text" value={searchTerm} onChange={handleSearchChange} placeholder="Buscar productos..." />
-        <button type="submit">Buscar</button>
-      </form>
-      <div>
-        {productsMock.map(product => (
-          <div key={product.id}>
-            <h2><a href={`/product/${product.id}`}>{product.title}</a></h2>
-            <p>{product.description}</p>
-            <p>Calificación: {product.rating} ({product.reviews} reseñas)</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+    return (
+        <div className="container my-5">
+            
+            <div className="row">
+                <div className="col-md-6">
+                    <h2>Últimos Productos Publicados</h2>
+                    <div className="list-group">
+                        {latestProducts.map(product => (
+                            <Link to={`/product/${product.id}`} 
+                            key={product.id} className="list-group-item list-group-item-action">
+                                <h5>{product.title}</h5>
+                                <p>{product.description}</p>
+                                <small>Por {product.user}</small>
+                                <div>
+                                    <span className="badge bg-primary">{product.rating} Estrellas</span>
+                                    <span className="badge bg-secondary">{product.reviews} Reseñas</span>
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+                <div className="col-md-6">
+                    <h2>Productos Mejor Calificados</h2>
+                    <div className="list-group">
+                        {topRatedProducts.map(product => (
+                            <Link to={`/product/${product.id}`} key={product.id} 
+                            className="list-group-item list-group-item-action">
+                                <h5>{product.title}</h5>
+                                <p>{product.description}</p>
+                                <small>Por {product.user}</small>
+                                <div>
+                                    <span className="badge bg-primary">{product.rating} Estrellas</span>
+                                    <span className="badge bg-secondary">{product.reviews} Reseñas</span>
+                                </div>
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
 };

@@ -5,6 +5,9 @@ import {
 	DashboardPage,
 	LoginPage,
 	RegisterPage,
+	ProfilePage,
+	NewProductPage,
+	
 } from '../pages';
 import { PrivateRoute } from './PrivateRoute';
 
@@ -16,11 +19,28 @@ export const AppRouter = () => {
 					<Route index element={<HomePage />} />
 					<Route path='login' element={<LoginPage />} />
 					<Route path='register' element={<RegisterPage />} />
+					
 					<Route
 						path='dashboard'
 						element={
 							<PrivateRoute>
 								<DashboardPage />
+							</PrivateRoute>
+						}
+					/>
+					<Route
+						path='profile'
+						element={
+							<PrivateRoute>
+								<ProfilePage />
+							</PrivateRoute>
+						}
+					/>
+					<Route
+						path='newproduct'
+						element={
+							<PrivateRoute>
+								<NewProductPage />
 							</PrivateRoute>
 						}
 					/>

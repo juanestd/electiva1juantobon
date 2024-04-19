@@ -4,3 +4,4 @@ export * from './LoginPage.jsx';
 export * from './RegisterPage.jsx';
 export * from './NewProductPage.jsx'
 export * from './ProfilePage.jsx'
+
